@@ -1,0 +1,7 @@
+{
+  "name": "Postgres-to-SFDC record publisher (Node)",
+  "description": "Tool to read records from Postgres (pg) and publish records to Salesforce (jsforce).",
+  "repository": "https://github.com/stscheit/postgres-to-sfdc-publish",
+  "website": "N/A",
+  "keywords": ["node", "salesforce", "jsforce", "pg"]
+}

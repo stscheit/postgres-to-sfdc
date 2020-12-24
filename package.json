@@ -1,0 +1,26 @@
+{
+  "name": "postgres-to-sfdc",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-util": "^3.0.7",
+    "gulp-atom-downloader": "^0.2.1",
+    "gulp-nodemon": "^2.0.6",
+    "gulp-livereload": "^3.8.1",
+    "gulp-env": "^0.4.0"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.13.4",
+    "express-session": "^1.17.1",
+    "hbs": "^4.1.1",
+    "jsforce": "^1.10.1",
+    "pg": "^8.5.1"
+  }
+}
