@@ -2,7 +2,8 @@ Postgres-to-SFDC record publisher (Node.js)
 ----------------------------------------
 
 Quick-and-dirty (quite rough) implemenation of a helper tool to read records from a Postgres database and publish/create records in Salesforce.
-This project is meant to be deployed to Heroku [![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) to run headless, that is without any meaningful UI. 
+This project is meant to be deployed to Heroku to run headless, that is without any meaningful UI.
+[![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) 
 
 This application has everything for connecting to Postgres (pg) and SFDC (jsforce):
 * Runs (i.e. nodemon app.js) as Express app under [http://localhost:5000](http://localhost:5000) - without any meaningful UI.
