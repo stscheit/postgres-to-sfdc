@@ -67,6 +67,11 @@ function execute(request, response) {
     })
     .catch(error => console.error('Error in select query: '+error))
     .then(() => {
+      // check for results, if no rows were returned, exit process
+      if(contactIdList.length==0) { 
+        console.log('No records were found to be processed.');
+        return;
+      }
       // create array of (platform event) objects to be sent to Salesforce
       let sobjectArray = [];
       for (let contactId of contactIdList) {
