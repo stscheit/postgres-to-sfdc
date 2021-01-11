@@ -1,18 +1,31 @@
 const env = require('dotenv').config();
 const path = require('path');
+const { Pool, Client } = require('pg');
 const express = require('express');
 const session = require('express-session');
+const pgSession = require('connect-pg-simple')(session); // store sessions in db
 const jsforce = require('jsforce');
 const hbs = require('hbs');
-const { Client } = require('pg');
+
+// initialise db (for sessions)
+var dbProperties = {
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+};
 
 // initiate Express
 const app = express();
 app.set('view engine', 'hbs');
 app.enable('trust proxy');
 app.use(session({
-  secret: 'S3CRE7', 
-  resave: true, 
+  store: new pgSession({
+    pool: new Pool(dbProperties)
+  }),
+  secret: process.env.COOKIE_SECRET, 
+  resave: false,
+  cookie:{ maxAge: 5 * 24 * 60 * 60 * 1000 }, // 5 days
   saveUninitialized: true
 }));
 
@@ -44,12 +57,7 @@ function execute(request, response) {
   });
 
   // initiate connection to DB
-  const dbClient = new Client({
-    connectionString: process.env.DATABASE_URL,
-    ssl: {
-      rejectUnauthorized: false
-    }
-  });
+  const dbClient = new Client(dbProperties);
 
   // connect to DB
   dbClient.connect()
