@@ -16,11 +16,15 @@ CREATE TABLE Contacts (
 	status VARCHAR (16) NOT NULL
 );
 
+-- truncate tables of test data (if required)
 TRUNCATE TABLE Contacts;
 TRUNCATE TABLE Session;
 
--- check contents
+-- check contact data
 SELECT count(*) FROM contacts;
+SELECT contact_id, status FROM contacts;
 SELECT count(*) FROM contacts WHERE status = 'pending';
 SELECT count(*) FROM contacts WHERE status = 'sent';
-SELECT contact_id, status FROM contacts where contact_id = '0032800000T20esAAB';
+
+-- check session data
+SELECT sid, sess, expire FROM session;
