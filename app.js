@@ -3,7 +3,7 @@ const path = require('path');
 const { Pool, Client } = require('pg');
 const express = require('express');
 const session = require('express-session');
-const pgSession = require('connect-pg-simple')(session); // store sessions in db
+const pgSession = require('connect-pg-simple')(session); // store sessions in db (not in use anymore)
 const jsforce = require('jsforce');
 const hbs = require('hbs');
 
@@ -20,9 +20,9 @@ const app = express();
 app.set('view engine', 'hbs');
 app.enable('trust proxy');
 app.use(session({
-  store: new pgSession({
+  /*store: new pgSession({
     pool: new Pool(dbProperties)
-  }),
+  }),*/
   secret: process.env.COOKIE_SECRET, 
   resave: false,
   cookie:{ maxAge: 5 * 24 * 60 * 60 * 1000 }, // 5 days
