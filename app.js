@@ -85,7 +85,7 @@ function execute(request, response) {
       for (let contactId of contactIdList) {
         sobjectArray.push({
           Process_Name__c: 'ContactServices.ReCalculatePrimaryPointsAndRollUp', 
-          Parameter__c: `{"contactIds":["${contactId}"],"targetContactPointObjects":["Address__c","Email__c","Phone__c"]}`
+          Parameter__c: `{"contactIds":["${contactId}"],"targetContactPointObjects":["Address__c","Name__c","Email__c","Phone__c"]}`
         })
       }
       // submit objects into Salesforce
