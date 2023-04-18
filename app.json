@@ -3,5 +3,6 @@
   "description": "Tool to read records from Postgres (pg) and publish records to Salesforce (jsforce).",
   "repository": "https://github.com/stscheit/postgres-to-sfdc-publish",
   "website": "N/A",
-  "keywords": ["node", "salesforce", "jsforce", "pg"]
+  "keywords": ["node", "salesforce", "jsforce", "pg"],
+  "stack": "heroku-22"
 }
